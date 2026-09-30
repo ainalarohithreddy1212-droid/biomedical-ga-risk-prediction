@@ -98,34 +98,32 @@ patient = {
 }
 
 # ==========================================
-
 # RISK CALCULATION
-
 # ==========================================
 
 risk_score = 0
 
 if blood_pressure > 140:
-risk_score += 1
+    risk_score += 1
 
 if oxygen_level < 95:
-risk_score += 1
+    risk_score += 1
 
 if temperature > 37.5:
-risk_score += 1
+    risk_score += 1
 
 if glucose_level > 140:
-risk_score += 1
+    risk_score += 1
 
 if heart_rate > 100:
-risk_score += 1
+    risk_score += 1
 
 if risk_score >= 3:
-risk_level = "HIGH"
+    risk_level = "HIGH"
 elif risk_score >= 2:
-risk_level = "MODERATE"
+    risk_level = "MODERATE"
 else:
-risk_level = "LOW"
+    risk_level = "LOW"
 
 # ==========================================
 
