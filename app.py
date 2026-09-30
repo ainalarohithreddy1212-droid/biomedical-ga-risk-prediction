@@ -126,9 +126,7 @@ else:
     risk_level = "LOW"
 
 # ==========================================
-
 # MAIN DASHBOARD
-
 # ==========================================
 
 st.header("Patient Assessment")
@@ -136,88 +134,91 @@ st.header("Patient Assessment")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-st.metric("Risk Score", f"{risk_score}/5")
+    st.metric(
+        "Risk Score",
+        f"{risk_score}/5"
+    )
 
 with col2:
-st.metric("Risk Level", risk_level)
+    st.metric(
+        "Risk Level",
+        risk_level
+    )
 
 with col3:
-if risk_level == "HIGH":
-st.error("High Risk Detected")
-elif risk_level == "MODERATE":
-st.warning("Moderate Risk")
-else:
-st.success("Low Risk")
+    if risk_level == "HIGH":
+        st.error("High Risk Detected")
+    elif risk_level == "MODERATE":
+        st.warning("Moderate Risk")
+    else:
+        st.success("Low Risk")
+
 
 # ==========================================
-
 # PATIENT PARAMETERS TABLE
-
 # ==========================================
 
 st.header("Patient Parameters")
 
 patient_df = pd.DataFrame(
-patient.items(),
-columns=["Parameter", "Value"]
+    patient.items(),
+    columns=["Parameter", "Value"]
 )
 
 st.dataframe(
-patient_df,
-use_container_width=True,
-hide_index=True
+    patient_df,
+    use_container_width=True,
+    hide_index=True
 )
 
+
 # ==========================================
-
 # RISK INTERPRETATION
-
 # ==========================================
 
 st.header("Risk Interpretation")
 
 if risk_level == "HIGH":
-st.error(
-"Multiple parameters are outside the predefined prototype "
-"thresholds. Further evaluation may be required."
-)
+    st.error(
+        "Multiple parameters are outside the predefined "
+        "prototype thresholds. Further evaluation may be required."
+    )
 
 elif risk_level == "MODERATE":
-st.warning(
-"Some parameters are outside the predefined prototype "
-"thresholds."
-)
+    st.warning(
+        "Some parameters are outside the predefined "
+        "prototype thresholds."
+    )
 
 else:
-st.success(
-"The entered parameters remain within the predefined "
-"prototype thresholds."
-)
+    st.success(
+        "The entered parameters remain within the predefined "
+        "prototype thresholds."
+    )
+
 
 # ==========================================
-
-# PROJECT INFORMATION
-
+# ABOUT THE PROJECT
 # ==========================================
 
 st.header("About the Project")
 
 st.write(
-"""
-This project explores the use of a Genetic Algorithm for
-biomedical feature selection. The system works with synthetic
-patient data containing age, blood pressure, heart rate,
-oxygen level, temperature and glucose level.
+    """
+    This project explores the use of a Genetic Algorithm for
+    biomedical feature selection. The system works with synthetic
+    patient data containing age, blood pressure, heart rate,
+    oxygen level, temperature and glucose level.
 
-```
-The Genetic Algorithm searches for useful combinations of
-biomedical features, while machine learning is used for
-classification and risk prediction.
-"""
-```
-
+    The Genetic Algorithm searches for useful combinations of
+    biomedical features, while machine learning is used for
+    classification and risk prediction.
+    """
 )
 
 st.caption(
-"OptiForge 2026 | IEEE EMBS × IEEE CIS | Vardhaman College of Engineering"
+    "OptiForge 2026 | IEEE EMBS × IEEE CIS | "
+    "Vardhaman College of Engineering"
 )
+
+
