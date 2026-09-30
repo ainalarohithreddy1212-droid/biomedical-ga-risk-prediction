@@ -297,10 +297,10 @@ print(
 # 12. NEW PATIENT PREDICTION
 # ==========================================
 
-new_patient = np.array([
-    [60, 155, 100, 92, 38.0, 175]
-])
-
+new_patient = pd.DataFrame(
+    [[60, 155, 100, 92, 38.0, 175]],
+    columns=feature_names
+)
 new_patient_scaled = scaler.transform(
     new_patient
 )
